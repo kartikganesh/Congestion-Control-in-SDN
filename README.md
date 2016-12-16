@@ -35,4 +35,4 @@ sh ovs-ofctl dump-flows s2
 
 sh ovs-ofctl dump-flows s4
 
-10. Perform iperf tests at h1 and h4 with udp and other posrt numbers to see how different traffic is diverted.
+Perform iperf tests at h1 and h4 with udp and other port numbers to see how different traffic is diverted. Type the above after the iperf is performed to noctice how the traffic is diverted.
