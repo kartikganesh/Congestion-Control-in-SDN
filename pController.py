@@ -89,7 +89,7 @@ def _handle_ConnectionUp (event):
   global s1_dpid, s2_dpid, s3_dpid, s4_dpid, s5_dpid
   print "ConnectionUp: ",dpidToStr(event.connection.dpid)
  
-  #remember the connection dpid for switch
+  #The connection dpid for switch
   for m in event.connection.features.ports:
     if m.name == "s1-eth1":
       s1_dpid = event.connection.dpid
@@ -135,14 +135,14 @@ def _handle_ConnectionUp (event):
       event.connection.send(msg)  
  
  
- #path 2....
+ #path 2
       msg = of.ofp_flow_mod()
       msg.priority =100
       msg.idle_timeout = 0
       msg.hard_timeout = 1
       msg.match.dl_type = 0x0800
-      msg.match.nw_proto = 6   #TCP protocol.
-      #msg.match.tp_src = 50    #cant specify tcp source on iperf, we use dst for proof of concept
+      msg.match.nw_proto = 6  
+      #msg.match.tp_src = 50    
       msg.match.tp_dst = 5001
       msg.actions.append(of.ofp_action_output(port = 5))
       event.connection.send(msg)
